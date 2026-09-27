@@ -2,10 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>하늘꿈커피 Co-Walk</title>
 <meta name="description" content="더치커피 한 병으로 홀로 사시는 어르신께 사랑의 안부를 전해요. 1회·정기 후원, 1.5만 원부터.">
-<!-- 링크 미리보기(카카오톡·문자·SNS)용 -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="하늘꿈커피 Co-Walk(동행) 프로젝트 | 하늘꿈교회">
 <meta property="og:description" content="더치커피 한 병으로 홀로 사시는 어르신께 사랑의 안부를 전해요. 1회·정기 후원, 1.5만 원부터.">
@@ -13,10 +12,575 @@
 <meta property="og:image" content="https://haneulkkum.github.io/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<!-- 사람은 바로 후원 페이지로 이동 (미리보기 수집기는 이동하지 않고 위 정보를 읽음) -->
-<meta http-equiv="refresh" content="0; url=https://claude.ai/artifact/V4LHsiyeqQB5JU1MojM6xm">
+<meta name="theme-color" content="#F4F7FA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F4F7FA; --surface:#FFFFFF; --soft:#E4EEF6; --line:#D6DEE6;
+  --ink:#241A14; --muted:#5E5650; --roast:#6B3E26; --roast-ink:#FFFFFF;
+  --sky:#2F6F9F; --drop:#6B3E26;
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100; --c-rest:#C9CFD6;
+  --f-display:"Hahmlet","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#14110F; --surface:#1E1916; --soft:#1B2630; --line:#342C27;
+    --ink:#F2ECE6; --muted:#B3A89F; --roast:#D49A6A; --roast-ink:#1A120D;
+    --sky:#8CBDE0; --drop:#D49A6A;
+    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c-rest:#4A4440;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#14110F; --surface:#1E1916; --soft:#1B2630; --line:#342C27;
+  --ink:#F2ECE6; --muted:#B3A89F; --roast:#D49A6A; --roast-ink:#1A120D;
+  --sky:#8CBDE0; --drop:#D49A6A;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c-rest:#4A4440;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;padding-inline:16px;padding-block:0 96px;word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.3}
+h2{font-size:22px}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--sky);font-weight:600}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+
+/* hero */
+.hero{padding-top:36px;display:grid;grid-template-columns:1fr 64px;gap:12px;align-items:start}
+.hero h1{font-size:34px;font-weight:700}
+.hero .lede{grid-column:1/-1;color:var(--muted)}
+.dripper{width:64px;height:120px;position:relative}
+.dripper svg{width:64px;height:120px;display:block}
+.drop{position:absolute;left:29px;top:48px;width:6px;height:9px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--drop);animation:fall 2.4s ease-in infinite}
+@keyframes fall{0%{transform:translateY(0);opacity:1}80%{transform:translateY(40px);opacity:1}100%{transform:translateY(44px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.drop{animation:none;transform:translateY(20px)}}
+.hero-meta{grid-column:1/-1;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+
+/* board */
+.board{background:var(--soft);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.board-head h2{font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--surface);border-radius:12px;padding:14px 6px 12px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;box-shadow:0 1px 0 var(--line),0 4px 12px rgba(36,26,20,.06)}
+.stat .ico{width:44px;height:44px;display:block}
+.stat b{font-family:var(--f-display);font-size:22px;font-weight:700;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat b small{font-family:var(--f-body);font-size:12px;font-weight:600;margin-left:2px;color:var(--muted)}
+.stat span{font-size:12.5px;font-weight:500;color:var(--muted)}
+.updated{font-size:12px;color:var(--muted)}
+
+/* money flow */
+.money{display:flex;flex-direction:column;gap:12px}
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.chart-card h3{margin:0;font-size:15px;font-weight:600;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.chart-card h3 span{font-family:var(--f-num);font-weight:500;font-variant-numeric:tabular-nums}
+.chart-body{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.donut{width:132px;height:132px;flex:none;display:block}
+.donut circle.slice{cursor:pointer;transition:stroke-width .15s}
+.donut circle.slice.on{stroke-width:30}
+.donut .c-val{font-family:var(--f-num);font-size:13px;fill:var(--ink)}
+.donut .c-lab{font-family:var(--f-body);font-size:10.5px;fill:var(--muted)}
+.legend{list-style:none;margin:0;padding:0;flex:1 1 170px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.legend li{display:grid;grid-template-columns:10px 1fr 84px 44px;gap:8px;align-items:center;cursor:default}
+.legend .sw{width:10px;height:10px;border-radius:3px}
+.legend .amt{font-family:var(--f-num);font-variant-numeric:tabular-nums;text-align:center;color:var(--ink)}
+.legend .pct{font-family:var(--f-num);font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;text-align:center}
+.legend li.on .lab{font-weight:600}
+.legend .empty{display:block;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.donut circle.slice{transition:none}}
+
+/* story */
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.facts li{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.facts b{font-family:var(--f-display);font-size:24px;font-weight:700;color:var(--roast);line-height:1.2;font-variant-numeric:tabular-nums}
+.facts span{font-size:14px;color:var(--ink);line-height:1.5}
+.facts small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.source{font-size:11.5px;color:var(--muted)}
+
+.story p+p{margin-top:0}
+.story-lead{font-size:17px;font-weight:500;color:var(--ink);line-height:1.6}
+.story p:not(.story-lead):not(.eyebrow){color:var(--muted)}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.flow li{position:relative;padding:0 0 16px 18px}
+.flow li:last-child{padding-bottom:0}
+.flow li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--roast)}
+.flow strong{display:block;font-weight:600}
+.flow span{color:var(--muted);font-size:14px}
+.note{font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+
+/* tiers */
+.toggle{display:grid;grid-template-columns:1fr 1fr;background:var(--soft);border-radius:10px;padding:4px;gap:4px}
+.toggle button{font:inherit;font-weight:500;border:0;border-radius:8px;padding:10px;background:transparent;color:var(--muted);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tiers{display:flex;flex-direction:column;gap:10px}
+.tier{font:inherit;color:inherit;text-align:left;display:grid;grid-template-columns:auto 1fr auto;gap:4px 14px;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer}
+.tier[aria-checked="true"]{border-color:var(--roast)}
+.bottles{display:flex;gap:3px;grid-row:1/3}
+.bottle{width:12px;height:30px;border-radius:4px 4px 3px 3px;background:var(--roast);position:relative}
+.bottle::before{content:"";position:absolute;left:3px;top:-5px;width:6px;height:6px;border-radius:2px;background:var(--roast)}
+.tier .price{font-family:var(--f-num);font-size:18px}
+.tier .what{font-size:13px;color:var(--muted);grid-column:2}
+.tier .ship{grid-row:1/3;grid-column:3;font-size:12px;padding:3px 8px;border-radius:99px;background:var(--soft);color:var(--sky);white-space:nowrap}
+.summary{font-size:14px;color:var(--muted)}
+.summary b{color:var(--ink)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--f-num);width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:13px}
+.steps strong{display:block;font-weight:600}
+.steps span{font-size:14px;color:var(--muted)}
+
+/* account */
+.account{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.acc-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.acc-no{font-family:var(--f-body);font-weight:600;font-size:18px;font-variant-numeric:tabular-nums;letter-spacing:.01em;color:var(--ink)}
+#acc-no,#phone{user-select:all}
+.bank{display:flex;align-items:center;gap:8px}
+.bank-name{font-weight:600;font-size:14px}
+.bank .acc-sub{margin-left:auto}
+.bullets{margin:0;padding:12px 14px 12px 30px;display:flex;flex-direction:column;gap:4px}
+.h1-sub{display:block;font-size:24px;font-weight:500;margin-top:4px;color:var(--roast)}
+.copy{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+.acc-sub{font-size:13px;color:var(--muted)}
+
+.contact{display:flex;flex-direction:column;gap:6px}
+.contact .acc-no{font-size:17px}
+.ideas{display:flex;flex-direction:column;gap:10px}
+.idea{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.idea strong{font-family:var(--f-display);font-size:17px;font-weight:700;line-height:1.4}
+.idea p{font-size:14px;color:var(--muted)}
+.idea .tag{align-self:flex-start;font-size:12px;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--sky)}
+footer{font-size:12px;color:var(--muted);text-align:center}
+
+/* sticky CTA */
+.cta-bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 70%,transparent)}
+.cta{display:block;max-width:480px;margin:0 auto;text-align:center;text-decoration:none;background:var(--roast);color:var(--roast-ink);font-weight:600;font-size:16px;padding:15px;border-radius:12px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+
+/* gallery */
+.gallery{margin-inline:-16px}
+.g-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.g-track::-webkit-scrollbar{display:none}
+.g-item{flex:0 0 82%;max-width:360px;scroll-snap-align:center;margin:0;display:flex;flex-direction:column;gap:8px}
+.g-img{aspect-ratio:4/3;width:100%;border-radius:14px;overflow:hidden;background:var(--soft)}
+.g-img img{width:100%;height:100%;object-fit:cover;display:block}
+.g-item figcaption{font-size:14px;color:var(--ink);line-height:1.5;padding-inline:2px}
+.g-foot{display:flex;justify-content:space-between;align-items:center;padding:0 16px}
+.g-count{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.g-nav{display:flex;gap:8px}
+.g-nav button{font:inherit;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-size:16px;line-height:1}
+.g-nav button:disabled{opacity:.35;cursor:default}
+.loading{opacity:.55}
+</style>
 </head>
 <body>
-<p>하늘꿈커피 후원 페이지로 이동 중입니다. 이동하지 않으면 <a href="https://claude.ai/artifact/V4LHsiyeqQB5JU1MojM6xm">여기를 눌러 주세요</a>.</p>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">하늘꿈교회 지역 동행 프로젝트</p>
+      <h1>하늘꿈커피<span class="h1-sub">Co-Walk(동행) 프로젝트</span></h1>
+    </div>
+    <div class="dripper" aria-hidden="true">
+      <svg viewBox="0 0 64 120" fill="none">
+        <path d="M14 6h36l-6 30H20z" fill="var(--soft)" stroke="var(--line)" stroke-width="2"/>
+        <path d="M28 36h8v8h-8z" fill="var(--line)"/>
+        <path d="M16 92h32v20a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4z" fill="var(--drop)" opacity=".85"/>
+        <path d="M16 70h32v46a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4z" stroke="var(--line)" stroke-width="2"/>
+      </svg>
+      <span class="drop"></span>
+    </div>
+    <p class="lede">한 방울씩 정성껏 내린 더치커피로<br>홀로 사시는 어르신께 사랑의 안부를 전합니다.<br>후원자 분께는 향긋한 커피를, 어르신께는 고소한 유제품이 도착합니다.</p>
+    <p class="hero-meta">더치커피 500ml · 1회 후원 또는 매달 정기 후원</p>
+  </header>
+
+  <section aria-labelledby="why-title" class="story">
+    <p class="eyebrow">왜 시작했나요</p>
+    <h2 id="why-title">혼자 사시는 어르신, 먼 이야기가 아닙니다</h2>
+    <ul class="facts">
+      <li><b>20.3%</b><span>우리나라 인구 중 65세 이상 고령인구 비중<small>2025년 · 2036년에는 30%를 넘을 전망</small></span></li>
+      <li><b>약 159만</b><span>혼자 사는 70세 이상 가구<small>2024년 · 1인 가구 5곳 중 1곳</small></span></li>
+      <li><b>3,924명</b><span>2024년 고독사 사망자<small>전년보다 7.2% 증가 · 60~70대가 45%</small></span></li>
+    </ul>
+    <p>혼자 사는 사람 둘 중 한 명(48.9%)은 "외롭다"고 답합니다. 안부를 묻는 사람이 줄어들수록 어르신들은 사회로부터 조금씩 멀어지고, 그 끝에는 아무도 모르게 맞는 죽음이 있습니다.</p>
+    <p class="story-lead">이웃을 향한 작은 관심이 그 외로움을 조금이나마 덜어 드릴 수 있다고 믿습니다.</p>
+    <p>하지만 교회 안에서만 나누는 사랑으로는 그분들께 닿기 어려웠습니다. 그래서 지역의 작은 교회인 하늘꿈교회가 '하늘꿈커피 프로젝트'로 혼자 사시는 어르신들께 한 걸음 다가갑니다.</p>
+    <p class="source">출처: 국가데이터처 「2025 고령자 통계」(2025.9), 「2025 통계로 보는 1인가구」(2025.12), 보건복지부 「2024년 고독사 발생 현황」(2025.11)</p>
+  </section>
+
+  <section aria-labelledby="flow-title">
+    <p class="eyebrow">하늘꿈커피가 하는 일 · 후원금이 가는 길</p>
+    <h2 id="flow-title">후원 한 번이 어르신 댁 문 앞까지</h2>
+    <ol class="flow">
+      <li><strong>후원하기</strong><span>1회 또는 매달 정기 후원을 신청하고 교회 계좌로 입금합니다.</span></li>
+      <li><strong>더치커피 발송</strong><span>감사의 마음을 담아 500ml 더치커피를 보내드립니다.</span></li>
+      <li><strong>주민센터와 대상 어르신 선정</strong><span>주민센터와 협약을 맺고 도움이 필요한 혼자 사시는 어르신을 함께 찾습니다.</span></li>
+      <li><strong>한국야쿠르트 유제품 배달</strong><span>배달 매니저님이 어르신 댁에 유제품을 전하며 안부도 함께 살핍니다.</span></li>
+    </ol>
+  </section>
+
+  <section class="board" aria-labelledby="board-title">
+    <div class="board-head">
+      <h2 id="board-title">모금 현황</h2>
+      <span class="updated" id="updated"></span>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <svg class="ico" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="gCoin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD76A"/><stop offset="1" stop-color="#E09A00"/></linearGradient>
+          <linearGradient id="gCoinTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset="1" stop-color="#F5B82E"/></linearGradient></defs>
+          <ellipse cx="24" cy="43" rx="15" ry="3" fill="#000" opacity=".12"/>
+          <path d="M9 30v6c0 3 6.7 5.5 15 5.5s15-2.5 15-5.5v-6z" fill="url(#gCoin)"/>
+          <ellipse cx="24" cy="30" rx="15" ry="5.5" fill="url(#gCoinTop)"/>
+          <path d="M9 21v6c0 3 6.7 5.5 15 5.5s15-2.5 15-5.5v-6z" fill="url(#gCoin)"/>
+          <ellipse cx="24" cy="21" rx="15" ry="5.5" fill="url(#gCoinTop)"/>
+          <path d="M9 12v6c0 3 6.7 5.5 15 5.5s15-2.5 15-5.5v-6z" fill="url(#gCoin)"/>
+          <ellipse cx="24" cy="12" rx="15" ry="5.5" fill="url(#gCoinTop)"/>
+          <text x="24" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#B87800" font-family="sans-serif">₩</text>
+        </svg>
+        <b id="s-amount">0</b><span>누적 후원액</span>
+      </div>
+      <div class="stat">
+        <svg class="ico" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="gWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCE6EF"/></linearGradient>
+          <linearGradient id="gRoof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9C6444"/><stop offset="1" stop-color="#5C3320"/></linearGradient>
+          <linearGradient id="gHeart" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8A8A"/><stop offset="1" stop-color="#E0474C"/></linearGradient></defs>
+          <ellipse cx="24" cy="43" rx="16" ry="3" fill="#000" opacity=".12"/>
+          <path d="M10 22h28v18a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2z" fill="url(#gWall)" stroke="#C3CFDA" stroke-width="1"/>
+          <path d="M5 23 24 7l19 16-3 3-16-13L8 26z" fill="url(#gRoof)"/>
+          <path d="M24 38s-8-4.8-8-10a4.2 4.2 0 0 1 8-1.8 4.2 4.2 0 0 1 8 1.8c0 5.2-8 10-8 10z" fill="url(#gHeart)"/>
+          <path d="M19.5 26.5a2.2 2.2 0 0 1 2.6-1" stroke="#fff" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".8"/>
+        </svg>
+        <b id="s-people">0</b><span>함께한 어르신</span>
+      </div>
+      <div class="stat">
+        <svg class="ico" viewBox="0 0 48 48" aria-hidden="true">
+          <defs><linearGradient id="gCarton" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E3ECF4"/></linearGradient>
+          <linearGradient id="gSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9D8E6"/><stop offset="1" stop-color="#AFC3D6"/></linearGradient>
+          <linearGradient id="gBand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5AA2DD"/><stop offset="1" stop-color="#2F6F9F"/></linearGradient></defs>
+          <ellipse cx="24" cy="44" rx="13" ry="2.8" fill="#000" opacity=".12"/>
+          <path d="M14 16 19 8h12l-5 8z" fill="#EEF3F8" stroke="#C3CFDA" stroke-width="1"/>
+          <path d="M26 16 31 8l5 8z" fill="url(#gSide)"/>
+          <path d="M14 16h12v26H14z" fill="url(#gCarton)" stroke="#C3CFDA" stroke-width="1"/>
+          <path d="M26 16h10v24l-10 2z" fill="url(#gSide)"/>
+          <path d="M14 24h12v9H14z" fill="url(#gBand)"/>
+          <path d="M26 24h10v8l-10 1z" fill="#2A5F88"/>
+          <circle cx="20" cy="28.5" r="2.2" fill="#fff"/>
+        </svg>
+        <b id="s-deliveries">0</b><span>유제품 배달</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="money-title">
+    <p class="eyebrow">후원금 공개</p>
+    <h2 id="money-title">후원 내역의 투명성을 원칙으로 합니다</h2>
+    <div class="money">
+      <div class="chart-card">
+        <h3>모인 돈 <span id="in-total"></span></h3>
+        <div class="chart-body">
+          <svg class="donut" id="donut-in" viewBox="0 0 160 160" role="img" aria-label="모인 돈 구성"></svg>
+          <ul class="legend" id="legend-in"></ul>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>쓰인 돈 <span id="out-total"></span></h3>
+        <div class="chart-body">
+          <svg class="donut" id="donut-out" viewBox="0 0 160 160" role="img" aria-label="후원금 사용 내역"></svg>
+          <ul class="legend" id="legend-out"></ul>
+        </div>
+      </div>
+    </div>
+    <ul class="note bullets">
+      <li>교회 후원 계좌 입출금 내역을 기준으로 운영자가 직접 갱신합니다.</li>
+      <li>그래프를 누르면 항목별 금액을 볼 수 있어요.</li>
+      <li>아직 쓰지 않은 돈은 다음 유제품 배달을 위해 모아 둡니다.</li>
+      <li>커피 생산과 배송 이외의 운영, 행정 비용은 전체 금액의 20% 미만으로 관리하여 후원금이 목적에 맞게 흘러가도록 합니다.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="gallery-title" id="gallery-section" hidden>
+    <p class="eyebrow">현장 이야기</p>
+    <h2 id="gallery-title">커피 한 병이 닿은 곳</h2>
+    <div class="gallery">
+      <div class="g-track" id="g-track" tabindex="0" aria-label="후원 현장 사진, 옆으로 넘겨 보세요"></div>
+      <div class="g-foot">
+        <span class="g-count" id="g-count"></span>
+        <div class="g-nav"><button type="button" id="g-prev" aria-label="이전 사진">‹</button><button type="button" id="g-next" aria-label="다음 사진">›</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="tier-title">
+    <p class="eyebrow">후원 금액 고르기</p>
+    <h2 id="tier-title">향긋한 커피로, 따뜻한 사랑의 인사를</h2>
+    <div class="toggle" role="group" aria-label="후원 방식">
+      <button type="button" id="mode-once" aria-pressed="true">1회 후원</button>
+      <button type="button" id="mode-monthly" aria-pressed="false">정기 후원 (매달)</button>
+    </div>
+    <div class="tiers" role="radiogroup" aria-label="후원 금액">
+      <button type="button" class="tier" role="radio" aria-checked="false" data-tier="1">
+        <span class="bottles"><i class="bottle"></i></span>
+        <span class="price">15,000원</span>
+        <span class="what">더치커피 500ml 1병</span>
+        <span class="ship">택배비 3,000원</span>
+      </button>
+      <button type="button" class="tier" role="radio" aria-checked="true" data-tier="2">
+        <span class="bottles"><i class="bottle"></i><i class="bottle"></i></span>
+        <span class="price">30,000원</span>
+        <span class="what">더치커피 500ml 2병</span>
+        <span class="ship">무료배송</span>
+      </button>
+      <button type="button" class="tier" role="radio" aria-checked="false" data-tier="3">
+        <span class="bottles"><i class="bottle"></i><i class="bottle"></i><i class="bottle"></i></span>
+        <span class="price">45,000원</span>
+        <span class="what">더치커피 500ml 3병</span>
+        <span class="ship">무료배송</span>
+      </button>
+    </div>
+    <p class="summary" id="summary" aria-live="polite"></p>
+    <p class="note">배송은 편의점 반값택배로 보내드려요. 가까운 편의점에서 찾아가시는 번거로움을 조금 감수해 주시면, 아낀 택배비만큼 어르신들께 더 돌아갑니다.</p>
+  </section>
+
+  <section aria-labelledby="how-title">
+    <p class="eyebrow">신청 방법</p>
+    <h2 id="how-title">신청서 작성 후 입금하면 끝</h2>
+    <ol class="steps">
+      <li><div><strong>신청서 작성</strong><span>아래 버튼으로 신청서를 열고 후원 방식, 금액, 받으실 편의점 정보를 적어 주세요.</span></div></li>
+      <li><div><strong>입금</strong><span>교회 계좌로 입금해 주세요. 카카오페이·토스 송금으로도 보내실 수 있어요. 정기 후원은 매달 자동이체를 설정해 주세요.</span></div></li>
+      <li><div><strong>커피 받기</strong><span>입금 확인 후 더치커피를 보내드립니다. 정기 후원은 매달 10일 전후로 보내드려요.</span></div></li>
+    </ol>
+    <div class="account">
+      <div class="bank"><span class="bank-name">신한은행</span><span class="acc-sub">후원 계좌</span></div>
+      <div class="acc-row">
+        <span class="acc-no" id="acc-no">100-031-171184</span>
+        <button type="button" class="copy" data-copy="acc-no">계좌 복사</button>
+      </div>
+      <span class="acc-no acc-holder">예금주 하늘꿈교회</span>
+      <span class="acc-sub">입금자명은 신청서에 적은 이름과 같게 해 주세요</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-title" class="contact">
+    <p class="eyebrow">문의</p>
+    <h2 id="contact-title">궁금한 점은 편하게 연락 주세요</h2>
+    <div class="account">
+      <span class="acc-no acc-holder">김병진 목사</span>
+      <div class="acc-row">
+        <a class="acc-no" id="phone" href="tel:01033157225" style="color:inherit;text-decoration:none">010-3315-7225</a>
+        <button type="button" class="copy" data-copy="phone">번호 복사</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="idea-title">
+    <p class="eyebrow">이렇게도 함께할 수 있어요</p>
+    <h2 id="idea-title">특별한 날을 나눔으로 채우는 방법</h2>
+    <div class="ideas">
+      <div class="idea">
+        <span class="tag">개인 · 가족</span>
+        <strong>생일 기념 후원 모금</strong>
+        <p>생일 선물 대신 친구와 가족에게 하늘꿈 커피 후원을 부탁해 보세요. 모인 후원금만큼 어르신 댁에 유제품이 배달되고, 후원해 주신 분들께는 더치커피가 전해집니다. 모금 안내 문구와 진행 방법은 문의 주시면 함께 준비해 드려요.</p>
+      </div>
+      <div class="idea">
+        <span class="tag">행사 · 단체</span>
+        <strong>답례품으로 하늘꿈 커피</strong>
+        <p>결혼식, 돌잔치, 교회·회사 행사, 명절 선물의 답례품으로 더치커피를 준비해 보세요. 받는 분은 좋은 커피를, 동네 어르신은 따뜻한 안부를 받습니다. 수량과 일정은 문의로 먼저 상의해 주세요.</p>
+      </div>
+    </div>
+    <p class="note">제안이나 단체 문의는 위 연락처(김병진 목사)로 편하게 연락 주세요.</p>
+  </section>
+
+  <footer>하늘꿈교회 · 하늘꿈커피 Co-Walk(동행) 프로젝트</footer>
+</div>
+
+<div class="cta-bar">
+  <a class="cta" id="cta" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">후원 신청서 작성하기</a>
+</div>
+
+<script>
+/* 관리자 백엔드(Apps Script 웹앱) 주소 — 배포 후 여기에 붙여넣기 */
+var API_URL = 'https://script.google.com/macros/s/AKfycbx8LxvyHfM3TgvUU8Kq3SJ2bQIU8LQZH9VtescxLpkioflIE4Tb8J45M_s2Yrua_HIY/exec';
+/* 서버에 연결이 안 될 때 잠시 보여줄 마지막 값 */
+var FALLBACK = {"people":80,"deliveries":540,"updated":"2026-09-25","inflow":[{"label":"1회 후원","amount":3500000},{"label":"정기 후원","amount":3000000},{"label":"생일 기념 모금","amount":1000000},{"label":"분류 전","amount":0}],"outflow":[{"label":"유제품 배달","amount":3000000},{"label":"커피 원가(원두·병)","amount":2500000},{"label":"포장·택배","amount":1000000},{"label":"운영·행정·수수료","amount":1000000}],"photos":[]};
+</script>
+<script>
+(function(){
+  var state = FALLBACK;
+  var fmt = function(n){ return Number(n||0).toLocaleString('ko-KR'); };
+  var $ = function(id){ return document.getElementById(id); };
+
+  // 예전 형식(amount 하나) 호환
+  if (!state.inflow) {
+    state.inflow = [{label:'1회 후원',amount:0},{label:'정기 후원',amount:0},{label:'생일 기념 모금',amount:0},{label:'분류 전',amount:state.amount||0}];
+    state.outflow = [{label:'유제품 배달',amount:0},{label:'커피 원가(원두·병)',amount:0},{label:'포장·택배',amount:0},{label:'운영·행정',amount:0}];
+  }
+  var COLORS = ['var(--c1)','var(--c2)','var(--c3)','var(--c4)'];
+  var sum = function(list){ return list.reduce(function(a,x){ return a + (Number(x.amount)||0); }, 0); };
+  var SVGNS = 'http://www.w3.org/2000/svg';
+
+  function drawDonut(svg, legend, slices, total, centerLabel){
+    svg.textContent = ''; legend.textContent = '';
+    var R = 58, C = 2 * Math.PI * R, GAP = 2;
+    var bg = document.createElementNS(SVGNS, 'circle');
+    bg.setAttribute('cx', 80); bg.setAttribute('cy', 80); bg.setAttribute('r', R);
+    bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', 'var(--soft)'); bg.setAttribute('stroke-width', 24);
+    svg.appendChild(bg);
+    var val = document.createElementNS(SVGNS, 'text'), lab = document.createElementNS(SVGNS, 'text');
+    val.setAttribute('class','c-val'); lab.setAttribute('class','c-lab');
+    [val, lab].forEach(function(t){ t.setAttribute('x', 80); t.setAttribute('text-anchor', 'middle'); });
+    val.setAttribute('y', 84); lab.setAttribute('y', 101);
+    var center = function(v, l){ val.textContent = v; lab.textContent = l; };
+    var reset = function(){ center(fmt(total) + '원', centerLabel); };
+    var shown = slices.filter(function(s){ return s.amount > 0; });
+    if (!shown.length || total <= 0) {
+      center('0원', centerLabel); svg.appendChild(val); svg.appendChild(lab);
+      var li = document.createElement('li'); li.innerHTML = '<span class="empty">아직 기록된 내역이 없어요.</span>'; legend.appendChild(li);
+      return;
+    }
+    var gap = shown.length > 1 ? GAP : 0, offset = 0, items = [];
+    function setOn(i){
+      items.forEach(function(it, j){ it.c.classList.toggle('on', j===i); it.li.classList.toggle('on', j===i); });
+      if (i == null) reset(); else center(fmt(shown[i].amount) + '원', shown[i].label);
+    }
+    shown.forEach(function(s, i){
+      var len = s.amount / total * C;
+      var c = document.createElementNS(SVGNS, 'circle');
+      c.setAttribute('class', 'slice');
+      c.setAttribute('cx', 80); c.setAttribute('cy', 80); c.setAttribute('r', R);
+      c.setAttribute('fill', 'none'); c.setAttribute('stroke', s.color); c.setAttribute('stroke-width', 24);
+      c.setAttribute('stroke-dasharray', Math.max(len - gap, 0.5) + ' ' + (C - Math.max(len - gap, 0.5)));
+      c.setAttribute('stroke-dashoffset', -offset);
+      c.setAttribute('transform', 'rotate(-90 80 80)');
+      var tt = document.createElementNS(SVGNS, 'title'); tt.textContent = s.label + ' ' + fmt(s.amount) + '원';
+      c.appendChild(tt);
+      svg.appendChild(c); offset += len;
+      var pct = Math.round(s.amount / total * 1000) / 10;
+      var li = document.createElement('li');
+      li.innerHTML = '<span class="sw"></span><span class="lab"></span><span class="amt"></span><span class="pct"></span>';
+      li.querySelector('.sw').style.background = s.color;
+      li.querySelector('.lab').textContent = s.label;
+      li.querySelector('.amt').textContent = fmt(s.amount);
+      li.querySelector('.pct').textContent = pct.toFixed(1) + '%';
+      legend.appendChild(li);
+      items.push({c:c, li:li});
+      var on = function(){ setOn(i); }, off = function(){ setOn(null); };
+      c.addEventListener('pointerenter', on); c.addEventListener('pointerleave', off);
+      li.addEventListener('pointerenter', on); li.addEventListener('pointerleave', off);
+      c.addEventListener('click', function(e){ e.stopPropagation(); c.classList.contains('on') ? off() : on(); });
+    });
+    svg.appendChild(val); svg.appendChild(lab); reset();
+  }
+
+  function renderBoard(){
+    var inTotal = sum(state.inflow), spent = sum(state.outflow);
+    var man = function(n){ if (n < 10000) return fmt(n) + '<small>원</small>'; var v = Math.round(n / 1000) / 10; return (v % 1 ? v.toLocaleString('ko-KR',{maximumFractionDigits:1}) : fmt(v)) + '<small>만원</small>'; };
+    $('s-amount').innerHTML = man(inTotal);
+    $('s-people').innerHTML = fmt(state.people) + '<small>명</small>';
+    $('s-deliveries').innerHTML = fmt(state.deliveries) + '<small>회</small>';
+    $('updated').textContent = state.updated.replace(/-/g,'.') + ' 기준';
+    $('in-total').textContent = fmt(inTotal) + '원';
+    $('out-total').textContent = fmt(spent) + '원';
+    var ins = state.inflow.map(function(x, i){ return {label:x.label, amount:Number(x.amount)||0, color:COLORS[i]}; });
+    drawDonut($('donut-in'), $('legend-in'), ins, inTotal, '누적 후원액');
+    var outs = state.outflow.map(function(x, i){ return {label:x.label, amount:Number(x.amount)||0, color:COLORS[i]}; });
+    var rest = inTotal - spent;
+    if (rest > 0) outs.push({label:'남은 돈 (다음 배달용)', amount:rest, color:'var(--c-rest)'});
+    drawDonut($('donut-out'), $('legend-out'), outs, Math.max(inTotal, spent), '누적 후원액');
+  }
+  renderBoard();
+
+  // tier + mode
+  var mode = 'once', tier = 2;
+  var TIERS = {1:{price:15000,n:1,ship:'택배비 3,000원 별도'},2:{price:30000,n:2,ship:'무료배송'},3:{price:45000,n:3,ship:'무료배송'}};
+  function renderChoice(){
+    $('mode-once').setAttribute('aria-pressed', mode==='once');
+    $('mode-monthly').setAttribute('aria-pressed', mode==='monthly');
+    document.querySelectorAll('.tier').forEach(function(b){ b.setAttribute('aria-checked', Number(b.dataset.tier)===tier); });
+    var t = TIERS[tier];
+    var total = t.price + (tier===1 ? 3000 : 0);
+    $('summary').innerHTML = (mode==='monthly' ? '매달 ' : '') + '<b>' + fmt(total) + '원</b> 입금 · 더치커피 ' + t.n + '병 ' + (mode==='monthly' ? '매달 발송' : '발송') + ' · ' + t.ship + '<br>신청서에서 같은 방식과 금액을 선택해 주세요.';
+  }
+  $('mode-once').onclick = function(){ mode='once'; renderChoice(); };
+  $('mode-monthly').onclick = function(){ mode='monthly'; renderChoice(); };
+  document.querySelectorAll('.tier').forEach(function(b){ b.onclick = function(){ tier = Number(b.dataset.tier); renderChoice(); }; });
+  renderChoice();
+
+  // copy
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.onclick = function(){
+      var el = $(btn.dataset.copy), text = el.textContent.trim(), label = btn.textContent;
+      var done = function(){ btn.textContent = '복사됨'; setTimeout(function(){ btn.textContent = label; }, 1500); };
+      var fallback = function(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = '길게 눌러 복사'; setTimeout(function(){ btn.textContent = label; }, 2000); };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+    };
+  });
+
+  // data load
+  document.querySelector('.board').classList.add('loading');
+  function applyData(d){
+    if (!d || !d.inflow) return;
+    state = d; renderBoard(); renderGallery(d.photos || []);
+  }
+  if (/^https:\/\/script\.google\.com\//.test(API_URL)) {
+    fetch(API_URL, {cache:'no-store'}).then(function(r){ return r.json(); })
+      .then(applyData)
+      .catch(function(){ /* 연결 실패 시 FALLBACK 유지 */ })
+      .then(function(){ document.querySelector('.board').classList.remove('loading'); });
+  } else {
+    document.querySelector('.board').classList.remove('loading');
+  }
+
+  // gallery
+  function photoUrl(id, w){ return 'https://drive.google.com/thumbnail?id=' + encodeURIComponent(id) + '&sz=w' + w; }
+  function renderGallery(photos){
+    var sec = $('gallery-section'), track = $('g-track');
+    track.textContent = '';
+    if (!photos.length) { sec.hidden = true; return; }
+    photos.forEach(function(p, i){
+      var fig = document.createElement('figure'); fig.className = 'g-item';
+      var box = document.createElement('div'); box.className = 'g-img';
+      var img = document.createElement('img');
+      img.src = photoUrl(p.id, 1000); img.alt = p.caption || ('후원 현장 사진 ' + (i+1));
+      img.loading = i < 2 ? 'eager' : 'lazy'; img.decoding = 'async';
+      img.onerror = function(){ if (!img.dataset.retry) { img.dataset.retry = '1'; img.src = 'https://lh3.googleusercontent.com/d/' + encodeURIComponent(p.id) + '=w1000'; } };
+      box.appendChild(img); fig.appendChild(box);
+      if (p.caption) { var cap = document.createElement('figcaption'); cap.textContent = p.caption; fig.appendChild(cap); }
+      track.appendChild(fig);
+    });
+    sec.hidden = false; updateNav();
+  }
+  function currentIndex(){
+    var t = $('g-track'), items = t.children, mid = t.scrollLeft + t.clientWidth / 2, best = 0, bd = Infinity;
+    for (var i = 0; i < items.length; i++) { var c = items[i].offsetLeft + items[i].offsetWidth / 2, dd = Math.abs(c - mid); if (dd < bd) { bd = dd; best = i; } }
+    return best;
+  }
+  function updateNav(){
+    var n = $('g-track').children.length, i = currentIndex();
+    $('g-count').textContent = n ? (i + 1) + ' / ' + n : '';
+    $('g-prev').disabled = i <= 0; $('g-next').disabled = i >= n - 1;
+  }
+  function go(step){
+    var t = $('g-track'), items = t.children, i = Math.max(0, Math.min(items.length - 1, currentIndex() + step));
+    if (items[i]) t.scrollTo({ left: items[i].offsetLeft - (t.clientWidth - items[i].offsetWidth) / 2, behavior: 'smooth' });
+  }
+  $('g-prev').onclick = function(){ go(-1); };
+  $('g-next').onclick = function(){ go(1); };
+  var navTimer; $('g-track').addEventListener('scroll', function(){ clearTimeout(navTimer); navTimer = setTimeout(updateNav, 80); }, {passive:true});
+  $('g-track').addEventListener('keydown', function(e){ if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
+})();
+</script>
 </body>
 </html>
