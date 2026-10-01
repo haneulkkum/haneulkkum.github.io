@@ -205,6 +205,13 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .paybtn.toss{background:#1C2E44;color:#9CC6F2}:root:not([data-theme="light"]) .paybtn.kakao{background:#3A3312;color:#F5E59A}}
 :root[data-theme="dark"] .paybtn.toss{background:#1C2E44;color:#9CC6F2}
 :root[data-theme="dark"] .paybtn.kakao{background:#3A3312;color:#F5E59A}
+
+.step-btns{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+.step-btns.two{grid-template-columns:1fr 1fr}
+.step-btn{display:block;text-align:center;text-decoration:none;background:var(--roast);color:var(--roast-ink);font-weight:600;font-size:15px;padding:12px 10px;border-radius:10px}
+.give-card{scroll-margin-top:16px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -381,19 +388,20 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
     <p class="eyebrow">신청 방법</p>
     <h2 id="how-title">신청서 작성 후 송금하면 끝</h2>
     <ol class="steps">
-      <li><div><strong>신청서 작성</strong><span>후원 방식, 금액, 받으실 편의점 정보를 적어 주세요.</span></div></li>
-      <li><div><strong>송금 또는 자동이체</strong><span>아래 "후원하기"에서 1회 후원은 바로 송금, 정기 후원은 자동이체를 등록해 주세요.</span></div></li>
+      <li><div><strong>신청서 작성</strong><span>후원 방식, 금액, 받으실 편의점 정보를 적어 주세요.</span>
+        <div class="step-btns"><a class="step-btn" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">후원 신청서 작성하기</a></div></div></li>
+      <li><div><strong>송금 또는 자동이체</strong><span>1회 후원은 바로 송금, 정기 후원은 자동이체를 등록해 주세요.</span>
+        <div class="step-btns two"><a class="step-btn" href="#give-once">1회 후원하기</a><a class="step-btn" href="#give-regular">정기 후원하기</a></div></div></li>
       <li><div><strong>커피 받기</strong><span>입금 확인 후 더치커피를 보내드립니다. 정기 후원은 매달 10일 전후로 보내드려요.</span></div></li>
     </ol>
-    <a class="inline-cta" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">① 후원 신청서 작성하기</a>
   </section>
 
   <section aria-labelledby="give-title">
     <p class="eyebrow">후원하기</p>
-    <h2 id="give-title">② 편한 방법으로 보내 주세요</h2>
+    <h2 id="give-title">편한 방법으로 보내 주세요</h2>
     <p class="give-pre">신청서를 먼저 작성하셨나요? 신청서가 있어야 커피를 보내드릴 수 있어요. <a href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">신청서 작성하기</a></p>
     <div class="give">
-      <div class="give-card">
+      <div class="give-card" id="give-once">
         <h3>1회 후원 <span class="tag">바로 송금</span></h3>
         <p>버튼을 누르면 토스 앱이 열리고, 교회 계좌와 금액이 미리 채워져요. (휴대폰에서 이용해 주세요)</p>
         <div class="paygrid">
@@ -406,7 +414,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
         <p class="pay-msg" id="pay-msg" role="status"></p>
         <p>입금자명은 신청서에 적은 이름과 같게 해 주세요.</p>
       </div>
-      <div class="give-card">
+      <div class="give-card" id="give-regular">
         <h3>정기 후원 <span class="tag">매달 자동이체</span></h3>
         <p>사용하시는 은행 앱에서 자동이체(지정이체)를 한 번만 등록해 주세요.</p>
         <div class="acc-inline"><span id="acc-no">신한 100-031-171184 하늘꿈교회</span><button class="copy" type="button" data-copyacc="regular">복사</button></div>
