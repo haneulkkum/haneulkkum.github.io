@@ -212,6 +212,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .give-card{scroll-margin-top:16px}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.board-note{font-size:12.5px;color:var(--muted);margin:0}
 </style>
 </head>
 <body>
@@ -312,6 +313,7 @@ html{scroll-behavior:smooth}
         <b id="s-deliveries">0</b><span>유제품 배달</span>
       </div>
     </div>
+    <p class="board-note">2020년 11월부터의 누적 기록이며, 매월 업데이트합니다.</p>
   </section>
 
   <section aria-labelledby="money-title">
@@ -334,6 +336,7 @@ html{scroll-behavior:smooth}
       </div>
     </div>
     <ul class="note bullets">
+      <li>2020년 11월부터의 누적 내역이며, 매월 업데이트합니다.</li>
       <li>교회 후원 계좌 입출금 내역을 기준으로 운영자가 직접 갱신합니다.</li>
       <li>그래프를 누르면 항목별 금액을 볼 수 있어요.</li>
       <li>아직 쓰지 않은 돈은 다음 유제품 배달을 위해 모아 둡니다.</li>
@@ -546,7 +549,7 @@ var FALLBACK = {"people":80,"deliveries":540,"updated":"2026-09-25","inflow":[{"
     $('s-amount').innerHTML = man(inTotal);
     $('s-people').innerHTML = fmt(state.people) + '<small>명</small>';
     $('s-deliveries').innerHTML = fmt(state.deliveries) + '<small>회</small>';
-    $('updated').textContent = state.updated.replace(/-/g,'.') + ' 기준';
+    $('updated').textContent = '2020.11 ~ ' + state.updated.replace(/-/g,'.') + ' 기준';
     $('in-total').textContent = fmt(inTotal) + '원';
     $('out-total').textContent = fmt(spent) + '원';
     var ins = state.inflow.map(function(x, i){ return {label:x.label, amount:Number(x.amount)||0, color:COLORS[i]}; });
