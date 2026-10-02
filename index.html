@@ -214,6 +214,17 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .board-note{font-size:12.5px;color:var(--muted);margin:0}
 </style>
+<!-- Microsoft Clarity: 방문·스크롤·클릭 분석 -->
+<script>
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","yrirglsoeq");
+document.addEventListener('click',function(e){
+  var el=e.target.closest&&e.target.closest('[data-track]');
+  if(el&&window.clarity){clarity('event',el.getAttribute('data-track'));}
+},true);
+</script>
 </head>
 <body>
 
@@ -392,9 +403,9 @@ html{scroll-behavior:smooth}
     <h2 id="how-title">신청서 작성 후 송금하면 끝</h2>
     <ol class="steps">
       <li><div><strong>신청서 작성</strong><span>후원 방식, 금액, 받으실 편의점 정보를 적어 주세요.</span>
-        <div class="step-btns"><a class="step-btn" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">후원 신청서 작성하기</a></div></div></li>
+        <div class="step-btns"><a class="step-btn" data-track="form_step" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">후원 신청서 작성하기</a></div></div></li>
       <li><div><strong>송금 또는 자동이체</strong><span>1회 후원은 바로 송금, 정기 후원은 자동이체를 등록해 주세요.</span>
-        <div class="step-btns two"><a class="step-btn" href="#give-once">1회 후원하기</a><a class="step-btn" href="#give-regular">정기 후원하기</a></div></div></li>
+        <div class="step-btns two"><a class="step-btn" data-track="step_once" href="#give-once">1회 후원하기</a><a class="step-btn" data-track="step_regular" href="#give-regular">정기 후원하기</a></div></div></li>
       <li><div><strong>커피 받기</strong><span>입금 확인 후 더치커피를 보내드립니다. 정기 후원은 매달 10일 전후로 보내드려요.</span></div></li>
     </ol>
   </section>
@@ -402,17 +413,17 @@ html{scroll-behavior:smooth}
   <section aria-labelledby="give-title">
     <p class="eyebrow">후원하기</p>
     <h2 id="give-title">편한 방법으로 보내 주세요</h2>
-    <p class="give-pre">신청서를 먼저 작성하셨나요? 신청서가 있어야 커피를 보내드릴 수 있어요. <a href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">신청서 작성하기</a></p>
+    <p class="give-pre">신청서를 먼저 작성하셨나요? 신청서가 있어야 커피를 보내드릴 수 있어요. <a data-track="form_give" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">신청서 작성하기</a></p>
     <div class="give">
       <div class="give-card" id="give-once">
         <h3>1회 후원 <span class="tag">바로 송금</span></h3>
         <p>버튼을 누르면 토스 앱이 열리고, 교회 계좌와 금액이 미리 채워져요. (휴대폰에서 이용해 주세요)</p>
         <div class="paygrid">
-          <a class="paybtn toss" href="supertoss://send?bank=%EC%8B%A0%ED%95%9C&amp;accountNo=100031171184&amp;amount=18000">토스로 18,000원 보내기 <small>커피 1병 + 택배비</small></a>
-          <a class="paybtn toss" href="supertoss://send?bank=%EC%8B%A0%ED%95%9C&amp;accountNo=100031171184&amp;amount=30000">토스로 30,000원 보내기 <small>2병 · 무료배송</small></a>
-          <a class="paybtn toss" href="supertoss://send?bank=%EC%8B%A0%ED%95%9C&amp;accountNo=100031171184&amp;amount=45000">토스로 45,000원 보내기 <small>3병 · 무료배송</small></a>
-          <button class="paybtn kakao" type="button" data-copyacc="kakao">카카오페이로 보내기 <small>계좌번호 복사</small></button>
-          <button class="paybtn copyacc" type="button" data-copyacc="bank">다른 은행 앱으로 보내기 <small>계좌번호 복사</small></button>
+          <a class="paybtn toss" data-track="toss_18000" href="supertoss://send?bank=%EC%8B%A0%ED%95%9C&amp;accountNo=100031171184&amp;amount=18000">토스로 18,000원 보내기 <small>커피 1병 + 택배비</small></a>
+          <a class="paybtn toss" data-track="toss_30000" href="supertoss://send?bank=%EC%8B%A0%ED%95%9C&amp;accountNo=100031171184&amp;amount=30000">토스로 30,000원 보내기 <small>2병 · 무료배송</small></a>
+          <a class="paybtn toss" data-track="toss_45000" href="supertoss://send?bank=%EC%8B%A0%ED%95%9C&amp;accountNo=100031171184&amp;amount=45000">토스로 45,000원 보내기 <small>3병 · 무료배송</small></a>
+          <button class="paybtn kakao" type="button" data-copyacc="kakao" data-track="copy_kakao">카카오페이로 보내기 <small>계좌번호 복사</small></button>
+          <button class="paybtn copyacc" type="button" data-copyacc="bank" data-track="copy_bank">다른 은행 앱으로 보내기 <small>계좌번호 복사</small></button>
         </div>
         <p class="pay-msg" id="pay-msg" role="status"></p>
         <p>입금자명은 신청서에 적은 이름과 같게 해 주세요.</p>
@@ -420,7 +431,7 @@ html{scroll-behavior:smooth}
       <div class="give-card" id="give-regular">
         <h3>정기 후원 <span class="tag">매달 자동이체</span></h3>
         <p>사용하시는 은행 앱에서 자동이체(지정이체)를 한 번만 등록해 주세요.</p>
-        <div class="acc-inline"><span id="acc-no">신한 100-031-171184 하늘꿈교회</span><button class="copy" type="button" data-copyacc="regular">복사</button></div>
+        <div class="acc-inline"><span id="acc-no">신한 100-031-171184 하늘꿈교회</span><button class="copy" type="button" data-copyacc="regular" data-track="copy_regular">복사</button></div>
         <ol class="steps2">
           <li>은행 앱 → 이체 → <b>자동이체 등록</b></li>
           <li>금액: 선택한 후원 금액 <b>(1병은 택배비 포함 18,000원)</b></li>
@@ -438,8 +449,8 @@ html{scroll-behavior:smooth}
     <div class="account">
       <span class="acc-no acc-holder">김병진 목사</span>
       <div class="acc-row">
-        <a class="acc-no" id="phone" href="tel:01033157225" style="color:inherit;text-decoration:none">010-3315-7225</a>
-        <button type="button" class="copy" data-copy="phone">번호 복사</button>
+        <a class="acc-no" id="phone" data-track="phone_call" href="tel:01033157225" style="color:inherit;text-decoration:none">010-3315-7225</a>
+        <button type="button" class="copy" data-copy="phone" data-track="phone_copy">번호 복사</button>
       </div>
     </div>
   </section>
@@ -466,7 +477,7 @@ html{scroll-behavior:smooth}
 </div>
 
 <div class="cta-bar">
-  <a class="cta" id="cta" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">후원 신청서 작성하기</a>
+  <a class="cta" id="cta" data-track="form_cta" href="https://forms.gle/MWaekEK7KBhi1wAPA" target="_blank" rel="noopener">후원 신청서 작성하기</a>
 </div>
 
 <script>
